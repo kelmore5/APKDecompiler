@@ -8,6 +8,7 @@
 #StackOverflow Question: http://tinyurl.com/o67mrb9
 #JD-Core-java: https://github.com/nviennot/jd-core-java
 #dex2jar: http://code.google.com/p/dex2jar/
+#apktool: http://ibotpeaches.github.io/Apktool/
 
 #All the tools used by this program:
 dex2jar="dex2jar-0.0.9.15"
@@ -39,6 +40,11 @@ appName=$(getAppName $1)
 echo "Copying $appName to APK directory..."
 
 appLocation="APKs/$appName"
+
+#Check for APK folder
+if [ ! -d "APKs" ]; then
+    mkdir "APKs"
+fi
 
 #Check if decompiled App already exists
 if [ -d "$appLocation" ]; then
